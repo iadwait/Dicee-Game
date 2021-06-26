@@ -1,22 +1,27 @@
 
+// Variable Declarations
 var randomNumber1 = getRandomNumber();
 var randomNumber2 = getRandomNumber();
-var dice1Image = "dice" + randomNumber1 + ".png";
-var dice2Image = "dice" + randomNumber2 + ".png";
+var dice1Image = "images/dice" + randomNumber1 + ".png";
+var dice2Image = "images/dice" + randomNumber2 + ".png";
 var result = checkResult(randomNumber1,randomNumber2)
+var image1 = document.querySelectorAll("img")[0].setAttribute("src",dice1Image);
+var image2 = document.querySelectorAll("img")[1].setAttribute("src",dice2Image);
+
+// Update UI Based on Result
 if (result === "D")
 {
-	alert("Draw");
+	document.querySelector("h1").innerHTML = "DRAW !!";	
 } else if (result === "W1")
 {
-	alert("Winner 1");
+	document.querySelector("h1").innerHTML = "Player 1 Wins !!";
 } else {
-	alert("Winner 2");
+	document.querySelector("h1").innerHTML = "Player 2 Wins !!";
 }
 
-
-
 // Functions Definations
+
+// Function to generate Random Number
 function getRandomNumber() 
 {
     var randomNumber = Math.random()
